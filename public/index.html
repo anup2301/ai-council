@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Council — Consensus Intelligence</title>
+  <meta name="description" content="Ask any question and receive a single, synthesized consensus answer from multiple AI models deliberating in parallel." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <main class="main-container">
+    <header class="header">
+      <div class="logo-group">
+        <div class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="20" stroke="url(#g1)" stroke-width="2"/>
+            <circle cx="24" cy="12" r="4" fill="url(#g2)"/>
+            <circle cx="12" cy="32" r="4" fill="url(#g2)"/>
+            <circle cx="36" cy="32" r="4" fill="url(#g2)"/>
+            <line x1="24" y1="16" x2="12" y2="30" stroke="url(#g3)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="24" y1="16" x2="36" y2="30" stroke="url(#g3)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14" y1="32" x2="34" y2="32" stroke="url(#g3)" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="24" cy="24" r="3" fill="url(#g2)" opacity="0.7"/>
+            <defs>
+              <linearGradient id="g1" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#818cf8"/><stop offset="1" stop-color="#38bdf8"/></linearGradient>
+              <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#a78bfa"/><stop offset="1" stop-color="#38bdf8"/></linearGradient>
+              <linearGradient id="g3" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#818cf8" stop-opacity="0.8"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0.8"/></linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div>
+          <h1 class="logo-title">AI Council</h1>
+          <p class="logo-sub">Consensus Intelligence Engine</p>
+        </div>
+      </div>
+      <div class="header-badge">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span>3 Models Online</span>
+      </div>
+    </header>
+    <section class="hero" aria-label="Introduction">
+      <p class="hero-text">
+        Your question is sent to <em>multiple AI minds simultaneously</em>.<br />
+        They deliberate. A consensus emerges. You receive <em>one clear answer</em>.
+      </p>
+    </section>
+    <section class="card question-card" aria-label="Ask a question">
+      <form id="ask-form" autocomplete="off">
+        <div class="input-wrapper">
+          <label for="question-input" class="input-label">Your Question</label>
+          <div class="textarea-container">
+            <textarea id="question-input" name="question" placeholder="What would you like the council to deliberate on?" rows="3" maxlength="800" required aria-required="true" aria-describedby="char-counter"></textarea>
+            <span id="char-counter" class="char-counter" aria-live="polite">0 / 800</span>
+          </div>
+        </div>
+        <div class="examples" id="examples-section">
+          <span class="examples-label">Try asking:</span>
+          <button type="button" class="example-chip" data-q="What are the most important skills to learn in 2025?">Skills in 2025</button>
+          <button type="button" class="example-chip" data-q="How does the brain form long-term memories?">Memory formation</button>
+          <button type="button" class="example-chip" data-q="What is the Fermi paradox and why does it matter?">Fermi paradox</button>
+          <button type="button" class="example-chip" data-q="Explain quantum entanglement simply.">Quantum entanglement</button>
+        </div>
+        <button type="submit" id="submit-btn" class="btn-submit" aria-label="Summon the council">
+          <span class="btn-text">Summon the Council</span>
+          <span class="btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </button>
+      </form>
+    </section>
+    <section id="loading-section" class="loading-section hidden" aria-live="polite" aria-label="Council deliberating">
+      <div class="council-chamber">
+        <div class="chamber-label">The Council is deliberating…</div>
+        <div class="council-nodes" aria-hidden="true">
+          <div class="council-node node-1"><div class="node-ring"></div><div class="node-core"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div><span class="node-label">Groq</span></div>
+          <div class="council-node node-2"><div class="node-ring"></div><div class="node-core"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="node-label">Gemini</span></div>
+          <div class="council-node node-3"><div class="node-ring"></div><div class="node-core"><svg viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="currentColor" stroke-width="1.5"/></svg></div><span class="node-label">Mistral</span></div>
+        </div>
+        <div class="merge-indicator" aria-hidden="true">
+          <div class="merge-line line-left"></div>
+          <div class="merge-orb"><div class="merge-pulse"></div><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.3"/></svg></div>
+          <div class="merge-line line-right"></div>
+        </div>
+        <div class="thinking-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <p class="thinking-status" id="thinking-status">Gathering perspectives…</p>
+      </div>
+    </section>
+    <section id="answer-section" class="answer-section hidden" aria-live="polite" aria-label="Council verdict">
+      <div class="verdict-card">
+        <div class="verdict-header">
+          <div class="verdict-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke="currentColor" stroke-width="1.5"/></svg></div>
+          <div><h2 class="verdict-title">Council Verdict</h2><span class="verdict-subtitle" id="cache-badge"></span></div>
+        </div>
+        <div class="verdict-divider" aria-hidden="true"></div>
+        <div id="answer-text" class="answer-text" role="region" aria-label="Answer"></div>
+        <div class="verdict-footer">
+          <button id="ask-another-btn" class="btn-secondary" type="button">Ask Another Question</button>
+          <button id="copy-btn" class="btn-copy" type="button" aria-label="Copy answer to clipboard">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.5"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="error-section" class="error-section hidden" aria-live="assertive" role="alert">
+      <div class="error-card">
+        <div class="error-icon" aria-hidden="true">⚠</div>
+        <p id="error-message" class="error-message">Something went wrong.</p>
+        <button id="error-retry-btn" class="btn-secondary" type="button">Try Again</button>
+      </div>
+    </section>
+    <footer class="footer">
+      <p>AI Council &mdash; answers synthesized from multiple models &middot; No intermediate reasoning is ever transmitted to this page.</p>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
