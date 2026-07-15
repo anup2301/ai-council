@@ -1,0 +1,22 @@
+{
+  "name": "ai-council",
+  "version": "1.0.0",
+  "description": "Multi-model AI consensus engine — queries multiple AI providers in parallel and merges answers into a single consensus response.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "node-fetch": "^2.7.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}
